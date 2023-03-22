@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelo/widgets/large_text.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -9,9 +10,9 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   List images  = [
-    "1.jpg",
-    "2.jpg",
-    "3.jpg"
+    "7.jpg",
+    "3.jpg",
+    "6.jpg"
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,6 +35,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 children: [
                   Column(
                     children: [
+                      LargeText(text: "Trips"),
 
                     ],
                   )
