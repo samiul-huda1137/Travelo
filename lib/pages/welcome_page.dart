@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:travelo/misc/colors.dart';
+import 'package:travelo/widgets/app_text.dart';
 import 'package:travelo/widgets/large_text.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -11,8 +13,18 @@ class WelcomePage extends StatefulWidget {
 class _WelcomePageState extends State<WelcomePage> {
   List images  = [
     "7.jpg",
-    "3.jpg",
-    "6.jpg"
+    "1.jpg",
+    "4.jpg"
+  ];
+  List largetext = [
+    "Mountains",
+    "Beaches",
+    "City Sightseeing"
+  ];
+  List text = [
+    "Mountain hikes give you an incredible sense of freedom along with endurance tests",
+    "Going to a sea beach offers an opportunity to relax, unwind, and enjoy the sun, sand, and surf",
+    "City sightseeing tour offers a chance to explore and experience new culture, history, and architecture"
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,9 +46,17 @@ class _WelcomePageState extends State<WelcomePage> {
               child: Row(
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       LargeText(text: "Trips"),
-
+                      AppText(text: largetext[index], size: 30),
+                      SizedBox(height: 20,),
+                      Container(
+                        width: 250,
+                        child: AppText(text: text[index],
+                        color: AppColors.textColor2, size: 14,
+                        ),
+                      )
                     ],
                   )
                 ],
