@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travelo/misc/colors.dart';
+import 'package:travelo/widgets/app_text.dart';
 import 'package:travelo/widgets/large_text.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +12,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  List images  = [
+    "beach.jpg",
+    "waterfall.jpg",
+    "panam.jpg"
+  ];
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -63,15 +69,48 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           Container(
+            padding: EdgeInsets.only(left: 20),
             height: 300,
             width: double.maxFinite,
             child: TabBarView(
               controller: _tabController,
                 children: [
-              Text("Hi"),
+              ListView.builder(
+                itemCount:images.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (_, int index) {
+                  return
+                  Container(
+                  margin: EdgeInsets.only(right: 15, top: 10),
+                  width: 200,
+                  height: 300,
+                  decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                  image: DecorationImage(image: AssetImage(
+                  "image/"+images[index]
+                  ),
+                  fit: BoxFit.cover
+                  )
+                  ),
+                  );
+                },
+
+              ),
               Text("Hello"),
               Text("Holla"),
             ]),
+          ),
+          SizedBox(height: 30,),
+          Container(
+            margin: EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                LargeText(text: "Explore more", size: 22),
+                AppText(text: "See all", color: AppColors.textColor1,)
+              ],
+            ),
           )
         ],
       ),
