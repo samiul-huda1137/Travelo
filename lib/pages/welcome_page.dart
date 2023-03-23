@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travelo/misc/colors.dart';
 import 'package:travelo/widgets/app_text.dart';
+import 'package:travelo/widgets/button.dart';
 import 'package:travelo/widgets/large_text.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -12,9 +13,9 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   List images  = [
-    "7.jpg",
-    "1.jpg",
-    "4.jpg"
+    "7.png",
+    "1.png",
+    "4.png"
   ];
   List largetext = [
     "Mountains",
@@ -44,6 +45,7 @@ class _WelcomePageState extends State<WelcomePage> {
             child: Container(
               margin: const EdgeInsets.only(top: 150, left: 20, right: 20),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,8 +58,23 @@ class _WelcomePageState extends State<WelcomePage> {
                         child: AppText(text: text[index],
                         color: AppColors.textColor2, size: 14,
                         ),
-                      )
+                      ),
+                      SizedBox(height: 40,),
+                      Button(width: 120)
                     ],
+                  ),
+                  Column(
+                    children: List.generate(3, (indexDots){
+                      return Container(
+                        margin: const EdgeInsets.only(bottom: 2),
+                        width: 8,
+                        height: index==indexDots?25:8,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: index==indexDots?AppColors.mainColor:AppColors.mainColor.withOpacity(0.3)
+                        ),
+                      );
+                    }),
                   )
                 ],
               ),
