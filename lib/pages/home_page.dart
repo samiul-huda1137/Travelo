@@ -19,10 +19,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     "beach2.jpg"
   ];
   var small_images = {
-    "h48.png":"Hiking",
-    "p48.png":"Paragliding",
-    "k48.png":"Kayaking",
-    "s48.png":"Sightseeing"
+    "h64.png":"Hiking",
+    "p64.png":"Paragliding",
+    "k64.png":"Kayaking",
+    "s64.png":"Sightseeing"
   };
   @override
   Widget build(BuildContext context) {
@@ -131,12 +131,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        margin: const EdgeInsets.only(right: 15, top: 10),
+                        //margin: const EdgeInsets.only(right: 15, top: 10),
                         width: 80,
                         height: 80,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Colors.deepPurpleAccent.withOpacity(0.2),
+                            color: Colors.grey.withOpacity(0.2),
                             image: DecorationImage(image: AssetImage(
                                 "image/"+small_images.keys.elementAt(index)
                             ),
