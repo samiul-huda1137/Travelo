@@ -15,8 +15,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   List images  = [
     "beach.jpg",
     "waterfall.jpg",
-    "panam.jpg"
+    "panam.jpg",
+    "beach2.jpg"
   ];
+  var small_images = {
+    "h48.png":"Hiking",
+    "p48.png":"Paragliding",
+    "k48.png":"Kayaking",
+    "s48.png":"Sightseeing"
+  };
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -43,12 +50,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
           ),
-          SizedBox(height: 40,),
+          SizedBox(height: 30,),
           //discover text
           Container(
               margin: EdgeInsets.only(left: 20),
               child: LargeText(text: "Discover")),
-          SizedBox(height: 40,),
+          SizedBox(height: 20,),
           //tab bar
           Container(
             child: Align(
@@ -97,8 +104,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 },
 
               ),
-              Text("Hello"),
-              Text("Holla"),
             ]),
           ),
           SizedBox(height: 30,),
@@ -111,6 +116,45 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 AppText(text: "See all", color: AppColors.textColor1,)
               ],
             ),
+          ),
+          SizedBox(height: 10,),
+          Container(
+            height: 120, width: double.maxFinite,
+            margin: const EdgeInsets.only(left: 20),
+            child: ListView.builder(
+                itemCount: 4,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (_,index){
+              return Container(
+                margin: const EdgeInsets.only(right: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(right: 15, top: 10),
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.deepPurpleAccent.withOpacity(0.2),
+                            image: DecorationImage(image: AssetImage(
+                                "image/"+small_images.keys.elementAt(index)
+                            ),
+                                fit: BoxFit.cover
+                            )
+                        ),
+                      ),
+                      SizedBox(height: 5,),
+                      Container(
+                        child: AppText(text: small_images.values.elementAt(index),
+                        color: AppColors.textColor2, size: 14,
+                        ),
+                      )
+                    ],
+                  ),
+              );
+
+            }),
           )
         ],
       ),
