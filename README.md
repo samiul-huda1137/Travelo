@@ -1,6 +1,6 @@
 # travelo
 
-a travel app for Android and iOS
+a travel app for iOS and Android using cubit / bloc state management
 
 ## Getting Started
 
