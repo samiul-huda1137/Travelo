@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travelo/misc/colors.dart';
 import 'package:travelo/widgets/appButtons.dart';
 import 'package:travelo/widgets/app_text.dart';
+import 'package:travelo/widgets/button.dart';
 import 'package:travelo/widgets/large_text.dart';
 
 class DetailPage extends StatefulWidget {
@@ -119,9 +120,35 @@ class _DetailPageState extends State<DetailPage> {
                             ),
                           );
                         }),
-                      )
+                      ),
+                      SizedBox(height: 20,),
+                      LargeText(text: "Description", color: Colors.black.withOpacity(0.8), size: 20),
+                      SizedBox(height: 10,),
+                      AppText(text: "Yosemite National Park is a famous national park located in California's Sierra Nevada Mountains, known for its stunning granite cliffs, waterfalls, and giant sequoia trees.",
+                      color: AppColors.mainTextColor),
+
                     ],
                   ),
+            )
+            ),
+            Positioned(
+                bottom: 20,
+                left: 20,
+                right: 20,
+                child: Row(
+                  children: [
+                    AppButtons(size: 60,
+                        color: AppColors.textColor1,
+                        backgroundcolor: Colors.white,
+                        bordercolor: AppColors.textColor2,
+                        isIcon: true,
+                      icon: Icons.favorite_border,
+                    ),
+                    SizedBox(width: 20,),
+                    Button(
+                      isResponsive: true,
+                    )
+                  ],
             )
             )
           ],
