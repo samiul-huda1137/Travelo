@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:travelo/cubit/app_cubit_states.dart';
+import 'package:travelo/model/data_model.dart';
+import 'package:travelo/pages/detail_page.dart';
 import 'package:travelo/services/data_services.dart';
 
 class AppCubits extends Cubit<CubitStates>{
@@ -19,5 +21,12 @@ class AppCubits extends Cubit<CubitStates>{
 
     }
   }
+   DetailPage(DataModel data){
+    emit(DetailState(data));
+   }
+
+   goBack(){
+    emit(LoadedState(places));
+   }
 
 }

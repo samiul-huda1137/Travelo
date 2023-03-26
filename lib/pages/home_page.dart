@@ -15,12 +15,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  List images  = [
-    "beach.jpg",
-    "waterfall.jpg",
-    "panam.jpg",
-    "beach2.jpg"
-  ];
+  // List images  = [
+  //   "beach.jpg",
+  //   "waterfall.jpg",
+  //   "panam.jpg",
+  //   "beach2.jpg"
+  // ];
   var small_images = {
     "h64.png":"Hiking",
     "p64.png":"Paragliding",
@@ -94,23 +94,30 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (_, int index) {
                             return
-                              Container(
-                                margin: EdgeInsets.only(right: 15, top: 10),
-                                width: 200,
-                                height: 300,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: Colors.white,
-                                    image: DecorationImage(image: NetworkImage(
-                                        "http://mark.bslmeiyu.com/uploads/"+info[index].img
-                                    ),
-                                        fit: BoxFit.cover
-                                    )
+                              GestureDetector(
+                                onTap: (){
+                                  BlocProvider.of<AppCubits>(context).DetailPage(info[index]);
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.only(right: 15, top: 10),
+                                  width: 200,
+                                  height: 300,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: Colors.white,
+                                      image: DecorationImage(image: NetworkImage(
+                                          "http://mark.bslmeiyu.com/uploads/"+info[index].img
+                                      ),
+                                          fit: BoxFit.cover
+                                      )
+                                  ),
                                 ),
                               );
                           },
 
                         ),
+                        Text("Working"),
+                        Text("Working as well")
                       ]),
                 ),
                 SizedBox(height: 30,),
