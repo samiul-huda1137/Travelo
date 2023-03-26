@@ -68,7 +68,11 @@ class _WelcomePageState extends State<WelcomePage> {
                         },
                         child: Container(
                           width: 200,
-                            child: Button(width: 120)),
+                            child: Row(
+                              children: [
+                                Button(width: 120),
+                              ],
+                            )),
                       )
                     ],
                   ),

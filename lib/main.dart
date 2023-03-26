@@ -6,6 +6,7 @@ import 'package:travelo/pages/detail_page.dart';
 import 'package:travelo/pages/home_page.dart';
 import 'package:travelo/pages/main_page.dart';
 import 'package:travelo/pages/welcome_page.dart';
+import 'package:travelo/services/data_services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: BlocProvider<AppCubits>(
-        create: (context)=>AppCubits(),
+        create: (context)=>AppCubits(
+          data: DataServices()
+        ),
         child: AppCubitLogics(),
       )
     );
