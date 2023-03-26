@@ -4,6 +4,7 @@ import 'package:travelo/cubit/app_cubit_states.dart';
 import 'package:travelo/cubit/app_cubits.dart';
 import 'package:travelo/pages/detail_page.dart';
 import 'package:travelo/pages/home_page.dart';
+import 'package:travelo/pages/main_page.dart';
 import 'package:travelo/pages/welcome_page.dart';
 
 class AppCubitLogics extends StatefulWidget {
@@ -24,7 +25,7 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
           }if(state is DetailState){
             return DetailPage();
           }if(state is LoadedState){
-            return HomePage();
+            return MainPage();
           }if(state is LoadingState){
             return Center(child: CircularProgressIndicator(),);
           }else{
