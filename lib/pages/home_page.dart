@@ -29,6 +29,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   };
   @override
   Widget build(BuildContext context) {
+    double w= MediaQuery.of(context).size.width;
+    double h= MediaQuery.of(context).size.height;
     TabController _tabController = TabController(length: 3, vsync: this);
     return Scaffold(
       body: BlocBuilder<AppCubits, CubitStates>(
@@ -40,7 +42,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               children: [
                 //menu text
                 Container(
-                  padding: EdgeInsets.only(top: 70, left: 20),
+                  padding: EdgeInsets.only(top: 30, left: 20),
                   child: Row(
                     children: [
                       Icon(Icons.menu,size: 30, color: Colors.black54,),
@@ -57,12 +59,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ],
                   ),
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: h*0.03,),
                 //discover text
                 Container(
                     margin: EdgeInsets.only(left: 20),
                     child: LargeText(text: "Discover")),
-                SizedBox(height: 20,),
+                SizedBox(height: h*0.005,),
                 //tab bar
                 Container(
                   child: Align(
@@ -84,7 +86,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
                 Container(
                   padding: EdgeInsets.only(left: 20),
-                  height: 300,
+                  height: h*0.35,
                   width: double.maxFinite,
                   child: TabBarView(
                       controller: _tabController,
@@ -100,8 +102,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 15, top: 10),
-                                  width: 200,
-                                  height: 300,
+                                  width: w*0.4,
+                                  height: h*0.35,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       color: Colors.white,
@@ -131,9 +133,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ],
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: h*0.02,),
                 Container(
-                  height: 120, width: double.maxFinite,
+                  height: h*0.135, width: double.maxFinite,
                   margin: const EdgeInsets.only(left: 20),
                   child: ListView.builder(
                       itemCount: 4,
@@ -147,14 +149,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               Container(
                                 //margin: const EdgeInsets.only(right: 15, top: 10),
                                 width: 80,
-                                height: 80,
+                                height: h*0.09,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
                                     color: Colors.grey.withOpacity(0.2),
                                     image: DecorationImage(image: AssetImage(
                                         "image/"+small_images.keys.elementAt(index)
                                     ),
-                                        fit: BoxFit.cover
+                                        fit: BoxFit.contain
                                     )
                                 ),
                               ),
