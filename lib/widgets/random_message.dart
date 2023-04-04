@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:travelo/misc/colors.dart';
+import 'package:travelo/widgets/app_text.dart';
 import 'dart:math';
 
+import 'package:travelo/widgets/large_text.dart';
+
 List<String> messages = [
-  'Hello!',
-  'How are you?',
-  'What\'s up?',
-  'Nice to meet you',
-  'Have a great day!'
+  '\"Adventure is worthwhile.\" \n~ Aesop',
+  '\"To travel is to live.\" \n~ Hans Christian Andersen',
+  '\"Traveling – it leaves you speechless, then turns you into a storyteller.\" \n~ Ibn Battuta',
+  '\"A journey is best measured in friends, rather than miles.\" \n~ Tim Cahill',
+  '\"The world is a book and those who do not travel read only one page.\" \n~ Saint Augustine'
 ];
 
 class RandomMessage extends StatefulWidget {
@@ -36,14 +40,20 @@ class _RandomMessageState extends State<RandomMessage> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         // Display the current message in a Text widget
-        Text(currentMessage),
+        AppText(text: currentMessage, fontStyle: FontStyle.italic, size: 22,),
 
         // Add a button to trigger the selection of a random message
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.transparent, // Set the button color to transparent
+          shadowColor: Colors.transparent, // Remove the button's shadow
+            elevation: 0, // Remove the button's elevation
+    ),
           onPressed: _selectRandomMessage,
-          child: Text('Show Random Message'),
+          child: Icon(Icons.touch_app, color: AppColors.mainColor, size: 46,),
         ),
       ],
     );

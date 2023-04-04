@@ -4,10 +4,11 @@ class LargeText extends StatelessWidget {
   double size;
   final String text;
   final Color color;
+  final FontStyle? fontStyle;
   LargeText({Key? key,
     this.size=30,
     required this.text,
-    this.color=Colors.black}) : super(key: key);
+    this.color=Colors.black, this.fontStyle}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,8 @@ class LargeText extends StatelessWidget {
       style: TextStyle(
         color: color,
         fontSize: size,
-        fontWeight: FontWeight.bold
+        fontWeight: FontWeight.bold,
+        fontStyle: fontStyle,
       ),
     );
   }
