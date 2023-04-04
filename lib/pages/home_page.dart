@@ -6,6 +6,7 @@ import 'package:travelo/cubit/app_cubits.dart';
 import 'package:travelo/misc/colors.dart';
 import 'package:travelo/widgets/app_text.dart';
 import 'package:travelo/widgets/large_text.dart';
+import 'package:travelo/widgets/random_message.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -118,7 +119,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           },
 
                         ),
-                        Text("Working"),
+                        RandomMessage(),
                         Text("Working as well")
                       ]),
                 ),
