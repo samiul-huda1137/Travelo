@@ -21,29 +21,38 @@ class RandomMessage extends StatefulWidget {
 }
 
 class _RandomMessageState extends State<RandomMessage> {
-  // Define a variable to hold the current message
   String currentMessage = '';
 
-  // Define a function to select a random message
   void _selectRandomMessage() {
-    // Generate a random number between 0 and the length of the messages list
     int randomIndex = Random().nextInt(messages.length);
-
-    // Get the message at the random index
     String randomMessage = messages[randomIndex];
-
-    // Update the current message variable
     setState(() {
       currentMessage = randomMessage;
     });
   }
   @override
   Widget build(BuildContext context) {
+    double w= MediaQuery.of(context).size.width;
+    double h= MediaQuery.of(context).size.height;
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         // Display the current message in a Text widget
-        AppText(text: currentMessage, fontStyle: FontStyle.italic, size: 22,),
+        Container(
+            margin: EdgeInsets.only(right: 20),
+            width: double.maxFinite,
+            height: h*0.2,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey.withOpacity(0.2),
+            ),
+
+              child: Center(
+                child: LargeText(
+                  text: currentMessage, fontFamily: 'Courgette' ,size: 22,color: Colors.black54,),
+              ),
+
+        ),
 
         // Add a button to trigger the selection of a random message
         ElevatedButton(
