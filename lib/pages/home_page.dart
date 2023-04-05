@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         Text("Working as well")
                       ]),
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: h*0.08,),
                 Container(
                   margin: EdgeInsets.only(left: 20, right: 20),
                   child: Row(
